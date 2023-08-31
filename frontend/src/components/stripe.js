@@ -3,7 +3,9 @@ import {loadStripe} from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import PaymentForm from './paymentForm';
 
-const stripePromise = loadStripe("pk_test_51NkibELTPibWaPOZcoy3WLgUnsVmagZvJRsNA5iIkOzrDufGB9ZLKF4aXS3VDEFoFmXRbgm0rIhSomqJpAp93grF00EmMXC42Z");
+// const key = ();
+// console.log(key);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPEKEY);
 
 function Stripe() {
   return (

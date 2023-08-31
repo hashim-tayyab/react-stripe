@@ -7,7 +7,6 @@ const football = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGG0w08Y
 function App() {
   
   const [showForm, setShowForm] = useState(false)
-
     return (
       <div className="App">
       {showForm ? (
@@ -20,19 +19,6 @@ function App() {
           </div>
       )}
     </div>
-      // <div className="App">
-      //   {
-      //   showForm ? (
-      //   <Stripe/>
-      //    ) : (
-      //   <>
-      //   <h3>$100.00</h3>
-      //    <img src={football}/> 
-      //    <button onClick={()=>setShowForm(true)}>BUY</button>
-      //    </>
-      //    )
-      //    }
-      // </div>
     );
   
 }

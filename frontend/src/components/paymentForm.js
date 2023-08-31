@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { CardNumberElement, CardCvcElement, CardExpiryElement, useStripe, useElements} from '@stripe/react-stripe-js';
 import axios from 'axios';
+import './paymentForm.css';
 
 
 const CARD_OPTIONS = {
-	iconStyle: "solid",
+	// iconStyle: "solid",
 	style: {
 		base: {
 			iconColor: "#c4f0ff",
@@ -58,32 +59,41 @@ export default function PaymentForm() {
         }
     }
    return (
-    <div>
-        {!success ? 
-        <form onSubmit={handleSubmit}>
-            <fieldset className='FormGroup'>
-                <div className="FormRow">
-                    <CardNumberElement options={CARD_OPTIONS} />
-                </div>
-            </fieldset>
-            <fieldset className='FormGroup'>
-                <div className="FormRow">
-                    <CardExpiryElement options={CARD_OPTIONS} />
-                </div>
-            </fieldset>
-            <fieldset className='FormGroup'>
-                <div className="FormRow">
-                    <CardCvcElement options={CARD_OPTIONS} />
-                </div>
-            </fieldset>
-            <button>Pay</button>
-        </form>
-        :
-        <div className="payment-success">
-            <h2>Payment successful</h2>
-            <h3 className='Thank-you'>Thank you for your patronage</h3>
-        </div>
-    }
-    </div>
-    );
+     <div>
+       {!success ? (
+         <form className='myForm' onSubmit={handleSubmit}>
+
+
+           <fieldset className="FormGroup">
+             <div className="FormRow">
+               <input className='nameInput' type='text' id='name' placeholder='Name' style={{border: 'none', height:'40px', outline:'none'}}/>
+             </div>
+           </fieldset>
+
+
+           <fieldset className="FormGroup">
+             <div className="FormRow">
+               <CardNumberElement options={CARD_OPTIONS} />
+             </div>
+           </fieldset>
+           <fieldset className="FormGroup">
+             <div className="FormRow">
+               <CardExpiryElement options={CARD_OPTIONS} />
+             </div>
+           </fieldset>
+           <fieldset className="FormGroup">
+             <div className="FormRow">
+               <CardCvcElement options={CARD_OPTIONS} />
+             </div>
+           </fieldset>
+           <button>Pay</button>
+         </form>
+       ) : (
+         <div className="payment-success">
+           <h2>Payment successful</h2>
+           <h3 className="Thank-you">Thank you for your patronage</h3>
+         </div>
+       )}
+     </div>
+   );
 }
